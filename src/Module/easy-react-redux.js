@@ -1,4 +1,5 @@
 import React, { Children, Component } from 'react';
+const dummyState = {};
 export const createStore = function (reducer) {
     let state;
     //存放多个订阅actions
@@ -47,8 +48,6 @@ export const mofan = function (countData) {
         return nextState;
     }
 }
-
-
 export const connect = function (mapStateToProps, mapDispatchToProps) {
     return function (params) {
         let Co = params;
@@ -65,7 +64,7 @@ export const connect = function (mapStateToProps, mapDispatchToProps) {
             componentDidMount() {
                 const __dispatch = this.context.store.dispatch;  //获取dispatch
                 const __state = this.context.store.getState() || {}; //所有返回值
-                this.context.store.subscribe(() => { this.setState({}) })  //每次修改dispatch 更新tree
+                this.context.store.subscribe(() => { this.setState(dummyState) })  //每次修改dispatch 更新tree
                 mapStateToProps && mapStateToProps(this.context.store.getState() || {}) //返回mapStateToProps 数据
                 if (mapDispatchToProps) {  //启动dispatch 派发到页面中 ---props.xxxx
                     for (let i in mapDispatchToProps) {
