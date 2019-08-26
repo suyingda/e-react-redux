@@ -1,8 +1,9 @@
+import React, { Children, Component } from 'react';
 export const createStore = function (reducer) {
     let state;
     //存放多个订阅actions
     let listeners = [];
-    //订阅记录actions
+    //订阅记录actions  通过subscribe 触发页面更新  牛逼
     function subscribe(v) {
         listeners.push(v)
     }
@@ -11,11 +12,11 @@ export const createStore = function (reducer) {
         //reducer 函数 关键点   主要线程 mofan 所有操作在这里进行赋值 给 stroe总数居
         state = reducer(state, actions);
         for (let i = 0; i < listeners.length; i++) {
-            const listener = listeners[i]
+            const listener = listeners[i];
             listener();
         }
     }
-    /* 注意！！！只修改了这里，用一个不匹配任何计划的 type，来获取初始值 */
+    /*  用一个不匹配任何计划的 type，来获取初始值 */
     dispatch({ types: Symbol() });
 
     function getState() {
@@ -44,6 +45,73 @@ export const mofan = function (countData) {
         }
         //返回所有数据  
         return nextState;
+    }
+}
+
+
+export const connect = function (mapStateToProps, mapDispatchToProps) {
+    return function (params) {
+        let Co = params;
+        class Ad extends Component {
+            static contextTypes = {
+                store: PropTypes.object
+            }
+            constructor(props) {
+                super(props)
+                this.state = {
+                    dis: {}
+                }
+            }
+            componentDidMount() {
+                const __dispatch = this.context.store.dispatch;  //获取dispatch
+                const __state = this.context.store.getState() || {}; //所有返回值
+                this.context.store.subscribe(() => { this.setState({}) })  //每次修改dispatch 更新tree
+                mapStateToProps && mapStateToProps(this.context.store.getState() || {}) //返回mapStateToProps 数据
+                if (mapDispatchToProps) {  //启动dispatch 派发到页面中 ---props.xxxx
+                    for (let i in mapDispatchToProps) {
+                        this.setState({
+                            dis: {
+                                ...this.state.dis,
+                                [i]: args => (mapDispatchToProps[i](args)).apply({}, [__dispatch, __state])
+                            }
+                        })
+                    }
+                }
+            }
+            render() {
+                // const newState = this.context.store.getState() || {}; //所有返回值
+                const childrenData = mapStateToProps && mapStateToProps(this.context.store.getState() || {})
+                return <div>
+                    <Co   {...childrenData} {...this.state.dis} />
+                </div>
+            }
+        }
+        return Ad;
+    }
+}
+// export const formData = React.createContext({
+//     theme: 'dark',
+//     toggle: () => { console.log('i am context16') }, //向上下文设定一个回调方法
+// });
+import PropTypes from 'prop-types';
+export const Provider = class H extends Component {
+    constructor(props) {
+        super(props)
+    }
+    // 声明Context对象属性  便于后方connect组件拿到store  16+
+    static childContextTypes = {
+        store: PropTypes.object
+    }
+    getChildContext() {
+        return {
+            store: this.props.store
+        };
+    }
+    render() {
+        return <div>
+            {this.props.children}
+            {/* {Children.only(this.props.children)} */}
+        </div>
     }
 }
 

@@ -8,6 +8,24 @@ const Two = {
     reselect: {
         abc: () => Two.reducer.twoData
     },
+    actions: {
+        aaaaa: function (v) {
+            return function (dispatch, getState) {
+                console.log(v, dispatch, getState, '打印')
+                dispatch({
+                    types: 'aaaaaa',
+                    data: "已经修改"
+                })
+            }
+        }
+        // aaaaa: (v) => (dispatch, getState) => {
+        //     console.log(v,dispatch,'打印')
+        //     dispatch({
+        //         types: 'aaaaaa',
+        //         data: "已经修改"
+        //     })
+        // }
+    },
     reducer: {
         value(state = Two.state.value, actions) {  //feature function 参数默认值问题       
             switch (actions.types) {
@@ -21,7 +39,7 @@ const Two = {
             switch (actions.types) {
                 case 'bbbbbbbbbbbbbbbbb':
                     return 2
-                default: console.log(666, state)
+                default:
                     return state;
             }
         }

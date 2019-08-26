@@ -33,16 +33,7 @@ const One = {
             }
         }
     }
-
 }
-
-
-// let store = createStore(reducer, initState);
-// store.subscribe(() => {
-//     let state = store.getState(); //finaly 执行完change 拿到update 
-//     console.log(state, 'redux');
-// });
-
 export default One
 
 

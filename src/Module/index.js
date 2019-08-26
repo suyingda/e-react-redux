@@ -19,5 +19,6 @@ const reducer = mofan({
 let store = createStore(reducer);
 export default store;
 
+
 //设计思想 整颗数据树  进行相应的 name module 分类获取   
 //难点  合并时候  确保区分 各个module间 的数据  清晰  可以通过 Object key 进行处理     
