@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from './Module/e-react-redux';
+import { connect } from './e-react-redux';
 import Module_two_one from './Module_two_one';
 import Two from './Module/two';
 class AA extends Component {
