@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from './e-react-redux';
+import { connect } from 'e-react-redux';
 import Module_two_one from './Module_two_one';
 import Two from './Module/two';
 class AA extends Component {
@@ -11,7 +11,7 @@ class AA extends Component {
         return <div>
             <h1>Module2</h1>
             <div onClick={() => {
-                this.props.Module_tow_actions_adsfasdf('参数').then((v)=>{console.log('这个是什么',v)});
+                this.props.Module_tow_actions_adsfasdf('参数').then((v) => { console.log('这个是什么', v) });
             }}>Module_tow_actions_adsfasdf</div>
             <div onClick={() => {
                 this.props.Module_tow_actions_addd('参数');
@@ -29,7 +29,8 @@ const mapStateToProps = (state, props) => {
 }                      
 
 const {Module_tow_actions_adsfasdf,Module_tow_actions_addd } = Two.actions;
-const mapDispatchToProps = {  
+const mapDispatchToProps = { 
+ 
      
     Module_tow_actions_adsfasdf,
         Module_tow_actions_addd    

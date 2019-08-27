@@ -1,7 +1,10 @@
-import { createStore, merge } from './createStore'
+import Provider from './components/Provider'
+import createStore from './createStore'
+import merge from './merge'
 
 import connect from './connect'
-import Provider from './components/Provider'
+
 
 export { createStore, connect, merge, Provider }
+
 

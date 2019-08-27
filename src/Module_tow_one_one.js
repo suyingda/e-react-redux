@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from './e-react-redux'
+import { connect } from 'e-react-redux'
 class A extends Component {
     constructor(props) {
         super(props)

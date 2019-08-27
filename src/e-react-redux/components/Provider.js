@@ -2,15 +2,13 @@
 //组件Provider
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-const Provider = function () {
-    return class Provider_ extends Component {
+export function createProvider() {
+    class Provider_ extends Component {
         constructor(props) {
             super(props)
         }
         // 声明Context对象属性  便于后方connect组件拿到store  16+
-        static childContextTypes = {
-            store: PropTypes.object
-        }
+
         getChildContext() {
             return {
                 store: this.props.store
@@ -23,6 +21,11 @@ const Provider = function () {
             </div>
         }
     }
+    Provider_.childContextTypes = {
+        store: PropTypes.object
+    }
+    return Provider_
 }
-export default Provider()
+
+export default createProvider()
 

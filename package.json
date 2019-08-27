@@ -1,5 +1,5 @@
 {
-  "name": "e-react-redux",
+  "name": "-e-react-redux",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,7 +16,8 @@
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.0-beta.0",
+    "babel-loader": "^8.0.6",
+    "e-react-redux": "^1.0.4",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
