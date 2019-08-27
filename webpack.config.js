@@ -1,12 +1,13 @@
 const path = require('path');
 module.exports = {
     mode: 'development',
+    // mode: 'production',
     entry: path.resolve(__dirname, './src/main.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'my-first-webpack.bundle.js'
     },
-    
+
     module: {
         rules: [
             {
@@ -15,9 +16,9 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ["@babel/preset-react",'@babel/preset-env']
+                        presets: ["@babel/preset-react", '@babel/preset-env']
                     },
-                     
+
                 }
             }
         ]

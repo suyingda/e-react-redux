@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Module222 from './module222'
+import Module_tow_one_one from './Module_tow_one_one'
 class A extends Component {
     constructor(props) {
         super(props)
@@ -14,7 +14,7 @@ class A extends Component {
                 我是组件
 
             </div>
-            <Module222 />
+            <Module_tow_one_one />
         </div>
     }
 }

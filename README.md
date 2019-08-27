@@ -1,4 +1,4 @@
-# easy-react-redux
+# e-react-redux
 
 实现了redux  react-redux 基本开发功能  (由于时间问题, 完善中....)
 

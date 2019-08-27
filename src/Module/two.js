@@ -2,40 +2,43 @@
 const Two = {
     name: 'Two',
     state: {
-        value: 10000,
-        jiaValue: 100000000000000
+        Module_tow_actions_Data1: 10000,
+        Module_tow_actions_Data2: 100000000000000
     },
     reselect: {
-        abc: () => Two.reducer.twoData
+        // abc: () => Two.reducer.twoData
     },
     actions: {
-        aaaaa: function (v) {
-            return function (dispatch, getState) {
-                console.log(v, dispatch, getState, '打印')
-                dispatch({
+        Module_tow_actions_adsfasdf: (v) =>async(dispatch, getState) => {
+              const a =   await  new Promise(function(resolve,reject){
+                    setTimeout(function(){
+                       return resolve('promise return')
+                    }, 3000);    
+                }) 
+                 dispatch({
                     types: 'aaaaaa',
                     data: "已经修改"
-                })
-            }
-        }
-        // aaaaa: (v) => (dispatch, getState) => {
-        //     console.log(v,dispatch,'打印')
-        //     dispatch({
-        //         types: 'aaaaaa',
-        //         data: "已经修改"
-        //     })
-        // }
+                 })   
+                 return a     
+        },
+        Module_tow_actions_addd: (v) => (dispatch, getState) => {
+            dispatch({
+                types: 'bbbbbbbbbbbbbbbbb',
+                data: 9999
+            })
+        },
+        
     },
     reducer: {
-        value(state = Two.state.value, actions) {  //feature function 参数默认值问题       
+        Module_tow_actions_Data1(state = Two.state.Module_tow_actions_Data1, actions) {  //feature function 参数默认值问题       
             switch (actions.types) {
                 case 'aaaaaa':
-                    return { a: 1 }
+                    return  1234567
                 default:
                     return state;
             }
         },
-        jiaValue(state = Two.state.jiaValue, actions) {  //feature function 参数默认值问题  
+        Module_tow_actions_Data2(state = Two.state.Module_tow_actions_Data2, actions) {  
             switch (actions.types) {
                 case 'bbbbbbbbbbbbbbbbb':
                     return 2

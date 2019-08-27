@@ -10,6 +10,14 @@ const One = {
             description: ''
         }
     },
+    actions: {
+         MainActons:(v)=>(dispatch,getState)=>{
+            dispatch({
+                types: 'add',
+                data: v || 'xiugai'
+            })
+         }
+    },
     reducer: {
         oneCLick(state = One.state, actions) {
             switch (actions.types) {
