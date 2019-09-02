@@ -1,4 +1,4 @@
-import { createStore, merge } from '../e-react-redux';
+import { createStore, merge } from 'e-react-redux';
 
 /***收集所有Module 文件 reudcer object */
 const files = require.context('./', false, /^((?!easy|index|Index|redux).)*\.js$/);

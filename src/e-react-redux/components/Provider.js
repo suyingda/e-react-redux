@@ -7,8 +7,6 @@ export function createProvider() {
         constructor(props) {
             super(props)
         }
-        // 声明Context对象属性  便于后方connect组件拿到store  16+
-
         getChildContext() {
             return {
                 store: this.props.store

@@ -18,5 +18,4 @@ const merge = function (countData) {
     }
 }
 
-
 export default merge
