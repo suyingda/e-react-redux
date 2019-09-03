@@ -1,5 +1,5 @@
-//处理所有文件reducers 
-const merge = function (countData) {
+//处理所有文件reducers
+const combineReducers = function (countData) {
     let keys = Object.keys(countData);
     let nextState = {};
     // _ 呼应上面的reduers 操作  本质就是引用调用
@@ -13,9 +13,9 @@ const merge = function (countData) {
                 nextState[k] = { ...nextState[k], [i]: r[i](dn ? dn[i] : dn, actions) }
             }
         }
-        //返回所有数据  
+        //返回所有数据
         return nextState;
     }
 }
 
-export default merge
+export default combineReducers

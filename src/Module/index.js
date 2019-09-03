@@ -1,4 +1,4 @@
-import { createStore, merge } from 'e-react-redux';
+import { createStore, combineReducers } from 'e-react-redux';
 
 /***收集所有Module 文件 reudcer object */
 const files = require.context('./', false, /^((?!easy|index|Index|redux).)*\.js$/);
@@ -13,7 +13,7 @@ files.keys().forEach(element => {
         throw Error
     }
 });
-const reducer = merge(middleware_r);
+const reducer = combineReducers(middleware_r);
 let store = createStore(reducer);
 export default store;
 
@@ -23,5 +23,5 @@ export default store;
 //     [One.name]: One.reducer,
 //     [Two.name]: Two.reducer
 // });
-//设计思想 整颗数据树  进行相应的 name module 分类获取   
-//难点  合并时候  确保区分 各个module间 的数据  清晰  可以通过 Object key 进行处理     
+//设计思想 整颗数据树  进行相应的 name module 分类获取
+//难点  合并时候  确保区分 各个module间 的数据  清晰  可以通过 Object key 进行处理
