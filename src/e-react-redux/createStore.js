@@ -7,6 +7,10 @@ export function createStore(reducer) {
     //订阅记录actions  通过subscribe 触发页面更新  牛逼
     function subscribe(callback) {
         listeners.push(callback)
+        return function(){
+            const index = listeners.indexOf(callback);
+            listeners.splice(index,1);
+        }
     }
     //执行所有actions  （feature)
     function dispatch(actions) {

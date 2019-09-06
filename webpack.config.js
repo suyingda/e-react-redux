@@ -3,10 +3,9 @@ module.exports = {
     mode: 'development',
     // mode: 'production',
     entry: {
-        // "main": path.resolve(__dirname, './src/main.js'),
+        "main": path.resolve(__dirname, './src/main.js'),
         "e-react-redux": path.resolve(__dirname, './src/e-react-redux/index.js'),
-        // "tree": "./src/e-react-redux/tree.js",
-        // "tree.min": "./src/e-react-redux/tree.js"
+
     },
     output: {
         path: path.resolve(__dirname, './src/e-react-redux/dist'),

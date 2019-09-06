@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import {connect} from 'e-react-redux'
- 
+// import {connect} from './e-react-redux/index'
+
 import One from './Module/one'
 class A extends Component {
     constructor(props) {
         super(props);
     }
     render() {
-        // console.log(this,'')
+        console.log(this,'one')
         return <div>
             <h1>Module1</h1>
             <div onClick={() => {

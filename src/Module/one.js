@@ -1,4 +1,3 @@
-
 const One = {
     name: 'One',
     state: {
@@ -11,12 +10,19 @@ const One = {
         }
     },
     actions: {
-         MainActons:(v)=>(dispatch,getState)=>{
+        MainActons: (v) => (dispatch, getState) => {
             dispatch({
                 types: 'add',
                 data: v || 'xiugai'
             })
-         }
+        },
+        aaaa: (v) => (dispatch, getState) => {
+            dispatch({
+                types: 'add',
+                data: v || 'xiugai'
+            })
+        },
+
     },
     reducer: {
         oneCLick(state = One.state, actions) {

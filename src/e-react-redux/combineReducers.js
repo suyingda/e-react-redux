@@ -1,18 +1,5 @@
 //处理所有文件reducers
 function createCombineReducers(countData) {
-    // const middleware_r = {};
-    // for (let i in countData) {
-    //     const rq = countData[i];
-    //     const rq_n = rq.name;
-    //     try {
-    //         if (middleware_r[rq_n]) throw new Error(`exist same name -----> ${rq_n} >>>${element}`);
-    //         // middleware_r[rq_n] = rq.reducer;
-    //         Object.assign(middleware_r, rq.reducer)
-    //     } catch (Error) {
-    //         throw Error
-    //     }
-    // }
-    // console.log(middleware_r,'middleware_r',countData)
     const keys = Object.keys(countData);
     const nextState = {};
     // _ 呼应上面的reduers 操作  本质就是引用调用

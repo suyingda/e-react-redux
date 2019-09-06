@@ -5,7 +5,8 @@ import Module_two from './Module_two'
 import store from './Module/Index';
 
 import { Provider } from 'e-react-redux';
- 
+// import { Provider } from './../src/e-react-redux';
+
 ReactDOM.render(
     <Provider store={store}>
         <Module_one />
