@@ -1,6 +1,6 @@
 {
   "name": "e-react-redux",
-  "version": "1.1.8",
+  "version": "1.2.3",
   "description": "",
   "main": "./lib/index.js",
   "scripts": {

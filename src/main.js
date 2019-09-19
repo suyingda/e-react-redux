@@ -6,11 +6,12 @@ import store from './Module/Index';
 
 import { Provider } from 'e-react-redux';
 // import { Provider } from './../src/e-react-redux';
+// import {Provider} from './../src/e-react-redux/dist/e-react-redux';
 
 ReactDOM.render(
     <Provider store={store}>
-        <Module_one />
-        <Module_two />
+        <Module_one/>
+        <Module_two/>
     </Provider>, document.getElementById('root_')
 );
 

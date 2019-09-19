@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'e-react-redux'
 // import {connect} from './e-react-redux/index'
-
+// import {connect} from './../src/e-react-redux/dist/e-react-redux';
 import One from './Module/one'
 class A extends Component {
     constructor(props) {

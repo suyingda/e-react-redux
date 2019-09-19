@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'e-react-redux';
 // import {connect} from './e-react-redux/index'
+// import {connect} from './../src/e-react-redux/dist/e-react-redux';
 import Module_two_one from './Module_two_one';
 import Two from './Module/two';
 

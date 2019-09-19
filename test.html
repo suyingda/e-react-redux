@@ -1,23 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-
+<div id="computed">0</div>
+<div onclick="init()">点击</div>
 <body>
-    <script>
-        var arr = 1
-        function a(aaaa ) {
-            let state = aaaa;
-            console.log(state)
+<script>
+
+    var obj = {
+        a: 0
+    };
+    var c = document.querySelector('#computed');
+
+    function saveData(func) {
+        let last = null;
+        let lastT = null;
+        return function () {
+                console.log(last, 'before', lastT)
+                last = func.apply(null, arguments);
+                lastT = arguments[0];
+                obj.a = last
+                return last
         }
+    }
 
-        a()
-    </script>
+    function createClosure(saveData) {
+        return function (...funcs) {
+            const oneF = funcs.pop();
+            const twoD = funcs;
+            const closureSaveData = saveData(function () {
+                return oneF.apply(null, arguments)
+            });
+            const cccc = saveData(
+                function () {
+                    let params = [];
+                    for (let i = 0; i < twoD.length; i++) {
+                        params.push(twoD[i].apply(null, arguments))
+                    }
+                    return closureSaveData.apply(null, params)
+                }
+            );
+            return cccc;
+        }
+    }
+
+    const closure = createClosure(saveData);
+    const i = closure((vvvv) => {
+        console.log(vvvv, 'xxxx')
+        return vvvv
+    }, _click)
+
+    function _click() {
+        console.log('消耗性能')
+        var value = Math.floor(Math.random() * 10);
+
+        c.innerHTML = obj.a
+        return value
+    }
+
+    function init() {
+        i(obj.a)
+    }
+
+    init()
+
+</script>
 </body>
-
 </html>

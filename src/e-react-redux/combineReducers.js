@@ -1,5 +1,5 @@
 //处理所有文件reducers
-function createCombineReducers(countData) {
+export function createCombineReducers(countData) {
     const keys = Object.keys(countData);
     const nextState = {};
     // _ 呼应上面的reduers 操作  本质就是引用调用
