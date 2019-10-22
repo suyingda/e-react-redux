@@ -39,5 +39,15 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        function () {
+            this.hooks.done.tap('done', (stats) => {
+                if (stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') == 2) {
+                    console.log('build error');
+                    process.exit(1)
+                }
+            })
+        }
+    ]
 }
